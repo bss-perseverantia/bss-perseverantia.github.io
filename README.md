@@ -1,2 +1,3 @@
-# bss-perseverantia.github.io
-Website for Perseverantia.
+# Website
+Website for Perseverantia, 2025.
+
