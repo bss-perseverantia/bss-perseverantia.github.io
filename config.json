@@ -13,7 +13,7 @@
     "about": {
       "tb1":"Bombay Scottish School, Mahim has returned with the third edition of its Annual Inter-School Fest - Perseverantia!",
       "tbg":"Our theme for this year is INCLUSIVITY",
-      "tb2":"Whether you are a Gaming Geek or a Football Freak, a Fashionista or a Filmmaker, a Dancer or a Debater, a Writer or the Wolf of Wall Street, we have something for everyone. \\n Join us on an enthralling journey where you can make a mark by displaying your talent through 15 exciting events.",
+      "tb2":"Whether you are a Gaming Geek or a Football Freak, a Fashionista or a Filmmaker, a Dancer or a Debater, a Writer or the Wolf of Wall Street, we have something for everyone. <br> Join us on an enthralling journey where you can make a mark by displaying your talent through 15 exciting events.",
       "button1": { "name": "View Events", "link": "/events" },
       "button2": {
         "name": "Organizing Committee",
