@@ -11,7 +11,7 @@
     "countdown": { "year": 2025, "month": 10, "day": 3 },
     "dateTime": "3rd October @ 7:00 a.m.",
     "about": {
-      "content": "<p class=\\\"text-lg mb-4\\\">Bombay Scottish School, Mahim has returned with the third edition of its Annual Inter-School Fest - Perseverantia!</p>\\n<p class=\\\"text-lg text-[#BE8E30] font-semibold mb-4\\\">Our theme for this year is INCLUSIVITY</p>\\n<p class=\\\"text-lg mb-4\\\">Whether you are a Gaming Geek or a Football Freak, a Fashionista or a Filmmaker, a Dancer or a Debater, a Writer or the Wolf of Wall Street, we have something for everyone.</p>\\n<p class=\\\"text-lg\\\">Join us on an enthralling journey where you can make a mark by displaying your talent through 15 exciting events.</p>"
+      "content": "<p class=\\\"text-lg mb-4\\\">Bombay Scottish School, Mahim has returned with the third edition of its Annual Inter-School Fest - Perseverantia!</p>\\n<p class=\\\"text-lg text-[#BE8E30] font-semibold mb-4\\\">Our theme for this year is INCLUSIVITY</p>\\n<p class=\\\"text-lg mb-4\\\">Whether you are a Gaming Geek or a Football Freak, a Fashionista or a Filmmaker, a Dancer or a Debater, a Writer or the Wolf of Wall Street, we have something for everyone.</p>\\n<p class=\\\"text-lg\\\">Join us on an enthralling journey where you can make a mark by displaying your talent through 15 exciting events.</p>",
       "button1": { "name": "View Events", "link": "/events" },
       "button2": {
         "name": "Organizing Committee",
