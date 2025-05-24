@@ -7,7 +7,7 @@
         { "name": "Fortuna", "linkto": "/fortuna" }
       ]
     },
-    "mainLogo": "https://cdn.glitch.global/3b9d1d59-b6d1-4dba-8c56-80a7758e975e/persevlogo.png",
+    "mainLogo": "/assets/persevlogo.png",
     "countdown": { "year": 2025, "month": 10, "day": 3 },
     "dateTime": "3rd October @ 7:00 a.m.",
     "about": {
