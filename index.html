@@ -32,13 +32,10 @@
 
           // Navbar
           document.getElementById("nav-title").textContent = site.navbar.title;
+          document.getElementById("tb1").textContent = site.about.tb1;
+          document.getElementById("tbg").textContent = site.about.tbg;
+          document.getElementById("tb2").textContent = site.about.tb2;
 
-          // Event Date/Time Text
-
-          // About Section
-          document.getElementById("about-section").innerHTML =
-            `<h2 class="text-4xl mb-4" style="font-family:Mestizo;">About</h2>` +
-            site.about.content;
 
           // About Buttons
           const btn1 = document.getElementById("button1");
@@ -195,16 +192,16 @@
         class="bg-[#081032] text-white p-8 md:p-12 flex flex-col justify-between h-full"
       >
         <div id="about-section">
-          <p class="text-lg mb-4">
+          <p class="text-lg mb-4" id="tb1">
             Bombay Scottish School, Mahim has returned with the third edition of
             its Annual Inter-School Fest - Perseverantia! Perseverantia aims to
             sensitise youth towards societal issues and conflicts through
             various performing, tech, literary and fine-art events.
           </p>
-          <p class="text-lg text-yellow-400 font-semibold mb-4">
+          <p class="text-lg text-yellow-400 font-semibold mb-4" id="tbg">
             Our theme for this year is INCLUSIVITY
           </p>
-          <p class="text-lg mb-4">
+          <p class="text-lg mb-4" id="tb2">
             Whether you are a Gaming Geek or a Football Freak, a Fashionista or
             a Filmmaker, a Dancer or a Debater, a Writer or the Wolf of Wall
             Street, we have something for everyone.
