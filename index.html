@@ -17,7 +17,7 @@
       var year = 0;
       async function a(){
         await fetch("/config.json")
-        .then((res) => {console.log(res);res.json();})
+        .then((res) => {console.log(res);return res.json();})
         .then((data) => {
           const site = data.website;
           console.log(site)
