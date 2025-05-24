@@ -1,0 +1,56 @@
+{
+  website:{
+    navbar:{
+      title:"PERSEVERANTIA '25",
+      links:[
+        {
+          name:"Leaderboard",
+          linkto:"/leaderboard"
+        },{
+          name:"Fortuna",
+          linkto:"/fortuna"
+        },
+      ]
+    },
+    mainLogo:"/persevlogo.png",
+    countdown:{
+      year:2025,
+      month:10,
+      day:3
+    },
+    dateTime:"3rd October @ 7:00 a.m.",
+    about:{
+      content:`<p class="text-lg mb-4">
+          Bombay Scottish School, Mahim has returned with the third edition of its Annual Inter-School Fest - Perseverantia!
+          Perseverantia aims to sensitise youth towards societal issues and conflicts through various performing, tech, literary and fine-art events.
+        </p>
+        <p class="text-lg text-yellow-400 font-semibold mb-4">
+          Our theme for this year is INCLUSIVITY
+        </p>
+        <p class="text-lg mb-4">
+          Whether you are a Gaming Geek or a Football Freak, a Fashionista or a Filmmaker, a Dancer or a Debater,
+          a Writer or the Wolf of Wall Street, we have something for everyone.
+        </p>
+        <p class="text-lg">
+          Join us on an enthralling journey where you can make a mark by displaying your talent through 15 exciting events.
+        </p>`,
+      button1:{
+        name:"View Events",
+        link:"/events"
+      },
+      button2:{
+        name:"Organizing Committee",
+        link:"/organizingCommittee"
+      },
+      photo:"https://static.wixstatic.com/media/447894_0bcb6114fe254d76a4301c97bad20409~mv2.jpg/v1/crop/x_266,y_21,w_1082,h_1045/fill/w_408,h_382,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202024-06-10%20at%2019_40_edite.jpg"
+    },
+    register:{
+      content:"Be part of Perseverantia '25 and showcase your talents across 21+ thrilling events. Don’t miss your chance to compete, collaborate, and celebrate!",
+      link:"/register"
+    },
+    contact:{
+      mobileNos:"📞 +91 84258 98552 / +91 77380 99474 / +91 70211 38415",
+      email:"perseverantia.mahim@bombayscottish.in"
+    }
+  }
+}
