@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Config Builder - Perseverantia</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Fonts -->
+    <style>
+      @font-face {
+        font-family: Mestizo;
+        src: url(https://bss-perseverantia.github.io/assets/MestizoFont.ttf);
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://bss-perseverantia.github.io/assets/persevlogo.png"
+    />
+  </head>
+  <body
+    style="
+      background: #11598d;
+      background: linear-gradient(
+        50deg,
+        rgba(17, 89, 141, 1) 0%,
+        rgba(8, 16, 50, 1) 100%
+      );
+    "
+    class="text-white font-[Inter] min-h-screen px-4 py-8"
+  >
+    <div style="border-color:#BE8E30" class="max-w-5xl mx-auto bg-[#0C1542] p-6 border-8 rounded-xl shadow-xl">
+      <div class="text-center mb-8">
+        <img
+          src="https://bss-perseverantia.github.io/assets/persevlogo.png"
+          class="mx-auto w-24 mb-4"
+        />
+        <h1
+          class="text-4xl sm:text-5xl text-[#BE8E30]"
+          style="font-family: Mestizo"
+        >
+          Config Builder
+        </h1>
+        <p class="text-gray-300 mt-2 text-sm">
+          Build and export your config.js easily.
+        </p>
+        <p class="text-gray-300 mt-2 text-sm">
+          Copy the generated config and paste it in config.js file of the Github repo.<br>
+          Go to Render.com and re-deploy the site (if it hasnot happened automatically).<br>
+          Go to the /admin page of the leaderboard, login and click Reset Database.
+        </p>
+      </div>
+
+      <!-- Port Input -->
+      <div class="mb-6 hidden">
+        <label class="block text-lg text-white mb-1 font-semibold">Port [DISABLED]</label>
+        <input
+          type="number"
+          id="port"
+          value="3000"
+          class="w-full p-3 rounded-lg bg-[#1E274F] text-white border border-[#BE8E30]"
+          disabled
+        />
+      </div>
+
+      <!-- Events Section -->
+      <div class="mb-6">
+        <label class="block text-lg text-white mb-2 font-semibold"
+          >Events</label
+        >
+        <div id="events" class="space-y-2 mb-2"></div>
+        <div class="flex">
+          <input
+            type="text"
+            id="newEvent"
+            placeholder="Add new event"
+            class="flex-grow p-2 rounded-l bg-[#1E274F] text-white border border-r-0 border-[#BE8E30]"
+          />
+          <button
+            onclick="addItem('event')"
+            class="bg-[#BE8E30] text-black px-4 rounded-r font-semibold"
+          >
+            Add
+          </button>
+        </div>
+      </div>
+
+      <!-- Schools Section -->
+      <div class="mb-6">
+        <label class="block text-lg text-white mb-2 font-semibold"
+          >Schools</label
+        >
+        <div id="schools" class="space-y-2 mb-2"></div>
+        <div class="flex">
+          <input
+            type="text"
+            id="newSchool"
+            placeholder="Add new school"
+            class="flex-grow p-2 rounded-l bg-[#1E274F] text-white border border-r-0 border-[#BE8E30]"
+          />
+          <button
+            onclick="addItem('school')"
+            class="bg-[#BE8E30] text-black px-4 rounded-r font-semibold"
+          >
+            Add
+          </button>
+        </div>
+      </div>
+
+      <!-- Generate Button -->
+      <div class="text-center mt-8">
+        <button
+          onclick="generateConfig()"
+          class="bg-[#BE8E30] text-black px-6 py-3 rounded-full font-bold hover:scale-105 transition duration-300"
+        >
+          Generate Config
+        </button>
+      </div>
+
+      <!-- Output -->
+      <pre
+        id="output"
+        class="mt-6 p-4 bg-[#1E274F] text-green-300 rounded overflow-auto text-sm font-mono"
+      ></pre>
+      <div class="text-center mt-4">
+        <button
+          id="copyBtn"
+          onclick="copyConfig()"
+          class="bg-[#BE8E30] text-black px-4 py-2 rounded-full font-semibold hover:scale-105 transition duration-300"
+        >
+          Copy Config
+        </button>
+        <p id="copyStatus" class="text-green-400 mt-2 hidden">Copied!</p>
+      </div>
+    </div>
+
+    <footer class="text-center text-gray-400 text-xs mt-8">
+      &copy; 2025 Bombay Scottish School, Mahim. All rights reserved.
+    </footer>
+
+    <script>
+      const events = [
+        "Admeta",
+        "Fortuna",
+        "Inventio",
+        "Gratia",
+        "Panache",
+        "Football",
+        "Basketball",
+        "Tug of War",
+        "E-sports",
+        "Carmen",
+        "Mr. and Mrs. Perseverantia",
+        "Explorare",
+        "Fabula",
+        "Artem",
+        "Sociale",
+      ];
+      const schools = [
+        "Vissanji Academy",
+        "Childrens Academy International Malad",
+        "Childrens Academy Malad",
+        "CNM School",
+        "Pawar Public Chandivali",
+        "Bombay Scottish, Powai",
+        "NSM School",
+        "Euro School, Airoli",
+        "Gundecha Academy",
+        "HFS Thane",
+        "Children's Academy Kandivali",
+        "AVM, Bandra (W)",
+        "Gokuldham High School",
+        "Christ Church",
+        "Lakshdham High School",
+        "Jasudben ML",
+        "Akshara High School",
+        "Shishuvan School",
+        "St. Peters",
+        "Pawar Public School, Kandivali",
+        "Pawar Public School, Bhandup",
+        "VIBGYOR High, Goregaon",
+        "St. Gregorious High School",
+        "Utpal Sanghvi",
+        "Thakur Public School",
+        "JB Vaccha",
+        "Sanjeevani",
+        "RBK Mira Road",
+        "Next School",
+        "HFS Powai",
+      ];
+
+      function renderList(type) {
+        const container = document.getElementById(
+          type === "event" ? "events" : "schools"
+        );
+        const items = type === "event" ? events : schools;
+        container.innerHTML = "";
+        items.forEach((item, index) => {
+          container.innerHTML += `
+          <div class="flex">
+            <input type="text" class="flex-grow p-2 rounded-l bg-[#1E274F] text-white border border-r-0 border-[#BE8E30]" value="${item}" onchange="updateItem('${type}', ${index}, this.value)" />
+            <button class="bg-red-500 text-white px-3 rounded-r" onclick="removeItem('${type}', ${index})">X</button>
+          </div>
+        `;
+        });
+      }
+
+      function updateItem(type, index, value) {
+        if (type === "event") events[index] = value;
+        else schools[index] = value;
+      }
+
+      function removeItem(type, index) {
+        if (type === "event") events.splice(index, 1);
+        else schools.splice(index, 1);
+        renderList(type);
+      }
+
+      function addItem(type) {
+        const input = document.getElementById(
+          type === "event" ? "newEvent" : "newSchool"
+        );
+        const value = input.value.trim();
+        if (value) {
+          if (type === "event") events.push(value);
+          else schools.push(value);
+          input.value = "";
+          renderList(type);
+        }
+      }
+
+      function generateConfig() {
+        const port = parseInt(document.getElementById("port").value, 10);
+        const config = {
+          port,
+          events,
+          schools,
+        };
+        document.getElementById("output").textContent =
+          "module.exports = " + JSON.stringify(config, null, 2) + ";";
+      }
+      function copyConfig() {
+        const output = document.getElementById("output").textContent;
+        if (!output.trim()) return;
+
+        navigator.clipboard.writeText(output).then(() => {
+          const status = document.getElementById("copyStatus");
+          status.classList.remove("hidden");
+          setTimeout(() => {
+            status.classList.add("hidden");
+          }, 2000);
+        });
+      }
+
+      // Initial render
+      renderList("event");
+      renderList("school");
+    </script>
+  </body>
+</html>
