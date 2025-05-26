@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fortuna Config Builder - Perseverantia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @font-face {
+        font-family: Mestizo;
+        src: url(https://bss-perseverantia.github.io/assets/MestizoFont.ttf);
+      }
+    </style>
+    <link rel="icon" type="image/png" href="https://bss-perseverantia.github.io/assets/persevlogo.png" />
+  </head>
+  <body class="bg-gradient-to-br from-[#11598d] to-[#081032] text-white font-[Inter] min-h-screen px-4 py-8">
+    <div class="max-w-5xl mx-auto bg-[#0C1542] p-6 border-8 border-[#be8e30] rounded-xl shadow-xl space-y-8">
+      <div class="text-center">
+        <img src="https://bss-perseverantia.github.io/assets/persevlogo.png" class="mx-auto w-24 mb-4" />
+        <h1 class="text-4xl sm:text-5xl text-[#BE8E30]" style="font-family: Mestizo">Fortuna Config Builder</h1>
+        <p class="text-gray-300 mt-2 text-sm">Generate secure config files for users and shares.</p>
+      </div>
+
+      <!-- Usernames -->
+      <div>
+        <h2 class="text-xl font-semibold text-white mb-2">Usernames</h2>
+        <div id="usernames" class="space-y-2 mb-2"></div>
+        <div class="flex mb-4">
+          <input id="newUsername" placeholder="Add new username" class="flex-grow p-2 rounded-l bg-[#1E274F] text-white border border-r-0 border-[#BE8E30]" />
+          <button onclick="addUsername()" class="bg-[#BE8E30] text-black px-4 rounded-r font-semibold">Add</button>
+        </div>
+        <button onclick="generateUserConfig()" class="bg-[#BE8E30] text-black px-4 py-2 rounded-full font-bold">Generate User Config</button>
+        <pre id="userConfigOutput" class="mt-4 p-3 bg-[#1E274F] text-green-300 rounded text-xs overflow-auto whitespace-pre-wrap break-words"></pre>
+        <button onclick="copyOutput('userConfigOutput')" class="mt-2 bg-[#BE8E30] text-black px-3 py-1 rounded-full font-semibold">Copy User Config</button>
+      </div>
+
+      <!-- Stocks -->
+      <div>
+        <h2 class="text-xl font-semibold text-white mb-2">Stock Configuration</h2>
+        <label class="block mb-2">How many price revisions?</label>
+        <input id="revisionCount" type="number" min="1" value="3" class="w-24 mb-4 p-2 bg-[#1E274F] text-white border border-[#BE8E30] rounded" />
+        <div id="stocksContainer" class="space-y-2 mb-4"></div>
+        <button onclick="addStock()" class="bg-[#BE8E30] text-black px-4 py-2 rounded-full font-bold">Add Stock</button>
+        <button onclick="generateStockConfigs()" class="ml-2 bg-[#BE8E30] text-black px-4 py-2 rounded-full font-bold">Generate Stock Configs</button>
+
+        <div class="mt-4">
+          <h3 class="text-lg font-semibold mb-2">Stock Base Config</h3>
+          <pre id="stockBaseConfig" class="p-3 bg-[#1E274F] text-yellow-300 rounded text-xs overflow-auto whitespace-pre-wrap break-words"></pre>
+          <button onclick="copyOutput('stockBaseConfig')" class="mt-2 bg-[#BE8E30] text-black px-3 py-1 rounded-full font-semibold">Copy Base Config</button>
+        </div>
+
+        <div class="mt-4">
+          <h3 class="text-lg font-semibold mb-2">All Prices Config </h3>
+          <pre id="stockAllPrices" class="p-3 bg-[#1E274F] text-pink-300 rounded text-xs overflow-auto whitespace-pre-wrap break-words"></pre>
+          <button onclick="copyOutput('stockAllPrices')" class="mt-2 bg-[#BE8E30] text-black px-3 py-1 rounded-full font-semibold">Copy All Prices</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const usernames = [];
+      const stocks = [];
+
+      function addUsername() {
+        const input = document.getElementById("newUsername");
+        const value = input.value.trim();
+        if (value) {
+          usernames.push(value);
+          input.value = "";
+          renderUserList();
+        }
+      }
+
+      function renderUserList() {
+        const container = document.getElementById("usernames");
+        container.innerHTML = "";
+        usernames.forEach((username, index) => {
+          container.innerHTML += `
+            <div class="flex">
+              <input type="text" class="flex-grow p-2 rounded-l bg-[#1E274F] text-white border border-r-0 border-[#BE8E30]" value="${username}" onchange="usernames[${index}] = this.value" />
+              <button class="bg-red-500 text-white px-3 rounded-r" onclick="removeUsername(${index})">X</button>
+            </div>
+          `;
+        });
+      }
+
+      function removeUsername(index) {
+        usernames.splice(index, 1);
+        renderUserList();
+      }
+
+      function generatePassword(length = 6) {
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        return Array.from({ length }, () => chars.charAt(Math.floor(Math.random() * chars.length))).join('');
+      }
+
+      function generateUserConfig() {
+        const config = usernames.map(username => ({ username, password: generatePassword() }));
+        document.getElementById("userConfigOutput").textContent = `'${JSON.stringify(config)}'`;
+      }
+
+      function addStock() {
+        stocks.push({ name: "", sector: "", price: 0, revisions: [] });
+        renderStocks();
+      }
+
+      function renderStocks() {
+        const container = document.getElementById("stocksContainer");
+        container.innerHTML = "";
+        const revisionCount = parseInt(document.getElementById("revisionCount").value || 0);
+        stocks.forEach((stock, idx) => {
+          const revisionsInputs = Array.from({ length: revisionCount }).map((_, i) =>
+            `<input type="number" value="${stock.revisions[i] || 0}" onchange="stocks[${idx}].revisions[${i}] = parseInt(this.value)" class="w-20 p-1 bg-[#1E274F] text-white border border-[#BE8E30] rounded" />`
+          ).join(" ");
+          container.innerHTML += `
+            <div class="bg-[#1E274F] p-3 rounded space-y-2">
+              <div class="flex space-x-2">
+                <input placeholder="Stock Name" value="${stock.name}" onchange="stocks[${idx}].name = this.value" class="flex-grow p-2 bg-[#1E274F] text-white border border-[#BE8E30] rounded" />
+                <input placeholder="Sector" value="${stock.sector}" onchange="stocks[${idx}].sector = this.value" class="flex-grow p-2 bg-[#1E274F] text-white border border-[#BE8E30] rounded" />
+                <input type="number" placeholder="Original Price" value="${stock.price}" onchange="stocks[${idx}].price = parseInt(this.value)" class="w-32 p-2 bg-[#1E274F] text-white border border-[#BE8E30] rounded" />
+              </div>
+              <div class="flex flex-wrap gap-2">${revisionsInputs}</div>
+            </div>
+          `;
+        });
+      }
+
+      function generateStockConfigs() {
+        const base = stocks.map(s => ({ name: s.name, price: s.price, sector: s.sector }));
+        const pricesByRevision = [];
+
+        const revisionCount = parseInt(document.getElementById("revisionCount").value || 0);
+        for (let i = 0; i < revisionCount; i++) {
+          pricesByRevision.push(stocks.map(s => s.revisions[i] ?? s.price));
+        }
+
+        document.getElementById("stockBaseConfig").textContent = JSON.stringify(base, null, 2);
+        document.getElementById("stockAllPrices").textContent = `'${JSON.stringify(pricesByRevision)}'`;
+      }
+
+      function copyOutput(id) {
+        const text = document.getElementById(id).textContent;
+        if (text) {
+          navigator.clipboard.writeText(text);
+          alert("Copied to clipboard!");
+        }
+      }
+
+      renderUserList();
+    </script>
+  </body>
+</html>
