@@ -1,443 +1,426 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content=" Perseverantia, The Annual Inter-school Festival of Bombay Scottish School, Mahim.">
-    <meta name="keywords" content="Perseverantia, Perseverantia 2025, Bombay Scottish School Mahim, Bombay Scottish School, Events at Scottish Mahim, Scottish Mahim, Inter-school Fest, Inter-school Festivals">
-    <meta property="og:title" content="Perseverantia" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://bss-perseverantia.github.io/" />
-    <meta property="og:description" content=" Perseverantia, The Annual Inter-school Festival of Bombay Scottish School, Mahim.">
-    <meta property="og:image" content="https://bss-perseverantia.github.io/persevlogo.png" />
-    <title>Perseverantia</title>
-    <style>
-      @font-face {
-        font-family: Mestizo;
-        src: url(/assets/MestizoFont.ttf);
-      }
-    </style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      var day = 0;
-      var month = 0;
-      var year = 0;
-      async function a(){
-        await fetch("/config.json")
-        .then((res) => {console.log(res);return res.json();})
-        .then((data) => {
-          const urlParams = new URLSearchParams(window.location.search);
-          const config = JSON.parse(urlParams.get('config'));
-          console.log(config)
-          const site = config;
-          console.log(site)
-          day = site.countdown.day;
-          month = site.countdown.month;
-          year = site.countdown.year;
-          for(let i=0;i<site.navbar.links.length;i++){
-            document.getElementById("desktop-nav").innerHTML += `<a href="${site.navbar.links[i].linkto}" class="hover:text-blue-200">${site.navbar.links[i].name}</a>`;
-            document.getElementById("mobile-menu").innerHTML += `<a href="${site.navbar.links[i].linkto}" class="block py-2 text-lg hover:text-blue-200">${site.navbar.links[i].name}</a>`
-            
-          }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perseverantia Config Builder</title>
 
-          // Navbar
-          document.getElementById("nav-title").textContent = site.navbar.title;
-          document.getElementById("tb1").textContent = site.about.tb1;
-          document.getElementById("tbg").textContent = site.about.tbg;
-          document.getElementById("tb2").innerHTML = site.about.tb2;
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Custom Fonts -->
+  <style>
+    @font-face {
+      font-family: Mestizo;
+      src: url(https://bss-perseverantia.github.io/assets/MestizoFont.ttf);
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-          // About Buttons
-          const btn1 = document.getElementById("button1");
-          btn1.textContent = site.about.button1.name;
-          btn1.href = site.about.button1.link;
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(50deg, rgba(17,89,141,1) 0%, rgba(8,16,50,1) 100%);
+      color: white;
+    }
+    h1, h2 {
+      font-family: Mestizo, serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen px-6 py-10">
 
-          const btn2 = document.getElementById("button2");
-          btn2.textContent = site.about.button2.name;
-          btn2.href = site.about.button2.link;
-
-          // About Image
-          document.getElementById("about-img").src = site.about.photo;
-
-          // Register Text and Link
-          document.getElementById("register-content").textContent =
-            site.register.content;
-          document.getElementById("register-link").href = site.register.link;
-
-          // Contact Info
-          document.getElementById("contact-numbers").textContent =
-            site.contact.mobileNos;
-
-          const contactEmail = document.getElementById("contact-email");
-          contactEmail.href = "mailto:" + site.contact.email;
-          contactEmail.textContent = site.contact.email;
-          
-        })
-        .catch((err) => {
-          console.error("Failed to load /config", err);
-        });
-                }
-      a();
-    </script>
-    <link rel="icon" type="image/png" href="/assets/persevlogo.png" />
-  </head>
-  <body class="bg-gray-100 text-gray-800">
-    <!-- Navbar -->
-    <nav class="text-white" style="background: #081032">
-      <div
-        class="container mx-auto px-4 py-4 flex justify-between items-center"
-      >
-        <div class="text-2xl" style="font-family: Mestizo" id="nav-title">
-          Perseverantia
-        </div>
-
-        <!-- Desktop Nav -->
-        <div class="hidden md:flex space-x-6 text-lg" id="desktop-nav">
-          
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden">
-          <button id="menu-toggle" class="focus:outline-none">
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Mobile Menu -->
-      <!--   <div id="mobile-menu"
-           class="md:hidden hidden opacity-0 scale-y-95 transform transition-all duration-300 ease-in-out origin-top px-4 pb-4">
-        <a href="/leaderboard" class="block py-2 text-lg hover:text-blue-200">Leaderboard</a>
-        <a href="/fortuna" class="block py-2 text-lg hover:text-blue-200">Fortuna</a>
-      </div>
--->
-      <div
-        id="mobile-menu"
-        class="md:hidden hidden opacity-0 scale-y-90 -translate-y-4 transform transition-all duration-500 ease-out origin-top px-4 pb-4"
-      >
-        
-      </div>
-    </nav>
-
-    <!-- Header Section with Image -->
-    <header
-      class="relative"
-      style="
-        background: #11598d;
-        background: linear-gradient(
-          50deg,
-          rgba(17, 89, 141, 1) 0%,
-          rgba(8, 16, 50, 1) 100%
-        );
-      "
-    >
-      <img
-        src="https://static.wixstatic.com/media/ed81f5_8df05af3e7524dafab639abced71ab32~mv2.png/v1/fill/w_480,h_477,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ed81f5_8df05af3e7524dafab639abced71ab32~mv2.png"
-        alt="Perseverantia Banner"
-        class="w-full max-w-md mx-auto pt-6"
-      />
-
-      <section class="text-white py-8 mx-8">
-        <div class="container mx-auto text-center">
-          <h2 class="text-5xl" style="font-family: Mestizo">
-            The Countdown Begins!
-          </h2>
-          <div
-            class="mt-8 max-w-4xl mx-auto text-center text-white border-8 border-[#BE8E30] rounded-[30px] px-4 py-6"
-          >
-            <!-- Countdown digits -->
-            <div
-              class="grid grid-cols-2 sm:grid-cols-4 gap-y-4 sm:gap-6 text-5xl sm:text-6xl md:text-7xl font-bold"
-            >
-              <div>
-                <span id="d">00</span><br />
-                <div class="mt-2 text-base sm:text-lg md:text-xl font-medium">
-                  Days
-                </div>
-              </div>
-              <div>
-                <span id="h">00</span><br />
-                <div class="mt-2 text-base sm:text-lg md:text-xl font-medium">
-                  Hours
-                </div>
-              </div>
-              <div>
-                <span id="m">00</span>
-                <div class="mt-2 text-base sm:text-lg md:text-xl font-medium">
-                  Minutes
-                </div>
-              </div>
-              <div>
-                <span id="s">00</span>
-                <div class="mt-2 text-base sm:text-lg md:text-xl font-medium">
-                  Seconds
-                </div>
-              </div>
-            </div>
-
-            <!-- Event date -->
-            <p class="text-xl sm:text-2xl md:text-3xl mt-6">
-              3rd October @ 7:00 a.m.
-            </p>
-          </div>
-        </div>
-      </section>
+  <div class="max-w-5xl mx-auto bg-[#0C1542] p-8 border-8 border-[#BE8E30] rounded-xl shadow-xl">
+    <header class="mb-10 text-center">
+      <img src="https://bss-perseverantia.github.io/assets/persevlogo.png" alt="Logo" class="mx-auto w-28 mb-4" />
+      <h1 class="text-5xl text-[#BE8E30] mb-2">Config Builder</h1>
+      <p class="text-gray-300 max-w-xl mx-auto text-sm">
+        Build and export your config.js easily.<br/>
+        Copy the generated config and paste it in your repo.<br/>
+        Redeploy and reset leaderboard DB as needed.
+      </p>
     </header>
 
-    <!-- Countdown Section -->
+    <!-- Navbar Section -->
+    <section class="mb-8">
+      <h2 class="text-2xl mb-4 text-[#BE8E30]">Navbar</h2>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 min-h-[500px]">
-      <!-- Left Column: Text Content -->
-      <div
-        class="bg-[#081032] text-white p-8 md:p-12 flex flex-col justify-between h-full"
+      <label class="block mb-2 font-semibold" for="navbarTitle">Title</label>
+      <input
+        id="navbarTitle"
+        type="text"
+        class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30] mb-4"
+        value="PERSEVERANTIA '25"
+      />
+
+      <div id="navbarLinksContainer" class="mb-4 space-y-3">
+        <!-- Links will be dynamically added here -->
+      </div>
+
+      <button
+        id="addNavbarLinkBtn"
+        type="button"
+        class="bg-[#BE8E30] text-black px-5 py-2 rounded font-semibold hover:bg-yellow-400 transition"
       >
-        <div id="about-section">
-           <h2 class="text-4xl mb-4" style="font-family: Mestizo">About</h2>
-          <p class="text-lg mb-4" id="tb1">
-            Bombay Scottish School, Mahim has returned with the third edition of
-            its Annual Inter-School Fest - Perseverantia! Perseverantia aims to
-            sensitise youth towards societal issues and conflicts through
-            various performing, tech, literary and fine-art events.
-          </p>
-          <p class="text-lg text-yellow-400 font-semibold mb-4" id="tbg">
-            Our theme for this year is INCLUSIVITY
-          </p>
-          <p class="text-lg mb-4" id="tb2">
-            Whether you are a Gaming Geek or a Football Freak, a Fashionista or
-            a Filmmaker, a Dancer or a Debater, a Writer or the Wolf of Wall
-            Street, we have something for everyone.
-          </p>
-          
-        </div>
+        + Add Navbar Link
+      </button>
+    </section>
 
-        <div class="mt-8 flex flex-col gap-y-6">
-          <a
-            href="/events"
-            id="button1"
-            target="_blank"
-            class="text-white bg-[#081032] lg:mx-52 py-3 px-6 rounded-full hover:shadow-xl hover:bg-[#BE8E30] hover:outline-[#081032] hover:text-black transition duration-300 outline outline-[4px] outline-[#BE8E30] outline-offset-2 text-center"
-          >
-            View Events
-          </a>
-          <a
-            href="/organizing-committee"
-            id="button2"
-            target="_blank"
-            class="text-white bg-[#081032] lg:mx-44 py-3 px-6 rounded-full hover:shadow-xl hover:bg-[#BE8E30] hover:outline-[#081032] hover:text-black transition duration-300 outline outline-[4px] outline-[#BE8E30] outline-offset-2 text-center"
-          >
-            Organizing Committee
-          </a>
+    <!-- Main Logo & DateTime -->
+    <section class="mb-8">
+      <h2 class="text-2xl mb-4 text-[#BE8E30]">Main Logo & Countdown</h2>
+
+      <label class="block mb-2 font-semibold" for="mainLogoInput">Main Logo URL</label>
+      <input
+        id="mainLogoInput"
+        type="text"
+        class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30] mb-4"
+        value="/assets/persevlogo.png"
+      />
+
+      <div class="grid grid-cols-3 gap-4 mb-4">
+        <div>
+          <label class="block mb-2 font-semibold" for="countdownYear">Countdown Year</label>
+          <input
+            id="countdownYear"
+            type="number"
+            class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30]"
+            value="2025"
+            min="2000"
+            max="2100"
+          />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold" for="countdownMonth">Month</label>
+          <input
+            id="countdownMonth"
+            type="number"
+            class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30]"
+            value="10"
+            min="1"
+            max="12"
+          />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold" for="countdownDay">Day</label>
+          <input
+            id="countdownDay"
+            type="number"
+            class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30]"
+            value="3"
+            min="1"
+            max="31"
+          />
         </div>
       </div>
 
-      <!-- Right Column: Full Image with Gradient Background -->
-      <div
-        class="relative w-full h-64 md:h-auto min-h-[500px]"
-        style="
-          background: linear-gradient(
-            50deg,
-            rgba(17, 89, 141, 1) 0%,
-            rgba(8, 16, 50, 1) 80%
-          );
-        "
-      >
-        <img
-          id="about-img"
-          src="https://static.wixstatic.com/media/447894_0bcb6114fe254d76a4301c97bad20409~mv2.jpg/v1/crop/x_266,y_21,w_1082,h_1045/fill/w_408,h_382,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202024-06-10%20at%2019_40_edite.jpg"
-          alt="About Perseverantia"
-          class="w-full h-full object-cover object-center rounded-none"
-        />
+      <label class="block mb-2 font-semibold" for="dateTimeInput">DateTime Display</label>
+      <input
+        id="dateTimeInput"
+        type="text"
+        class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30]"
+        value="3rd October @ 7:00 a.m."
+      />
+    </section>
+
+    <!-- About Section -->
+    <section class="mb-8">
+      <h2 class="text-2xl mb-4 text-[#BE8E30]">About Section</h2>
+
+      <label class="block mb-2 font-semibold" for="aboutTb1">Text Block 1 (tb1)</label>
+      <textarea
+        id="aboutTb1"
+        rows="3"
+        class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30] mb-4 resize-none"
+      >Bombay Scottish School, Mahim has returned with the third edition of its Annual Inter-School Fest - Perseverantia!</textarea>
+
+      <label class="block mb-2 font-semibold" for="aboutTbg">Text Block - Theme (tbg)</label>
+      <textarea
+        id="aboutTbg"
+        rows="2"
+        class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30] mb-4 resize-none"
+      >Our theme for this year is INCLUSIVITY</textarea>
+
+      <label class="block mb-2 font-semibold" for="aboutTb2">Text Block 2 (tb2)</label>
+      <textarea
+        id="aboutTb2"
+        rows="5"
+        class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30] mb-4 resize-none"
+      >Whether you are a Gaming Geek or a Football Freak, a Fashionista or a Filmmaker, a Dancer or a Debater, a Writer or the Wolf of Wall Street, we have something for everyone. &lt;be&gt;&lt;br&gt; Join us on an enthralling journey where you can make a mark by displaying your talent through 15 exciting events.</textarea>
+
+      <div class="grid grid-cols-2 gap-6 mb-6">
+        <div>
+          <label class="block mb-2 font-semibold" for="aboutButton1Name">Button 1 Name</label>
+          <input
+            id="aboutButton1Name"
+            type="text"
+            class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30]"
+            value="View Events"
+          />
+          <label class="block mt-3 mb-2 font-semibold" for="aboutButton1Link">Button 1 Link</label>
+          <input
+            id="aboutButton1Link"
+            type="text"
+            class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30]"
+            value="/events"
+          />
+        </div>
+
+        <div>
+          <label class="block mb-2 font-semibold" for="aboutButton2Name">Button 2 Name</label>
+          <input
+            id="aboutButton2Name"
+            type="text"
+            class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30]"
+            value="Organizing Committee"
+          />
+          <label class="block mt-3 mb-2 font-semibold" for="aboutButton2Link">Button 2 Link</label>
+          <input
+            id="aboutButton2Link"
+            type="text"
+            class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30]"
+            value="/organizingCommittee"
+          />
+        </div>
       </div>
+
+      <label class="block mb-2 font-semibold" for="aboutPhoto">Photo URL</label>
+      <input
+        id="aboutPhoto"
+        type="text"
+        class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30]"
+        value="https://static.wixstatic.com/media/447894_0bcb6114fe254d76a4301c97bad20409~mv2.jpg/v1/crop/x_266,y_21,w_1082,h_1045/fill/w_408,h_382,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202024-06-10%20at%2019_40_edite.jpg"
+      />
+    </section>
+
+    <!-- Register Section -->
+    <section class="mb-8">
+      <h2 class="text-2xl mb-4 text-[#BE8E30]">Register Section</h2>
+
+      <label class="block mb-2 font-semibold" for="registerContent">Content</label>
+      <textarea
+        id="registerContent"
+        rows="4"
+        class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30] mb-4 resize-none"
+      >Be part of Perseverantia '25 and showcase your talents across 21+ thrilling events. Don’t miss your chance to compete, collaborate, and celebrate!</textarea>
+
+      <label class="block mb-2 font-semibold" for="registerLink">Register Link</label>
+      <input
+        id="registerLink"
+        type="text"
+        class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30]"
+        value="/register"
+      />
     </section>
 
     <!-- Contact Section -->
-    <!-- Register and Contact Section -->
-    <section class="grid grid-cols-1 md:grid-cols-2">
-      <!-- Left Column: Register Now -->
-      <div
-        class="p-10 text-white flex flex-col justify-center items-center"
-        style="
-          background: linear-gradient(
-            50deg,
-            rgba(17, 89, 141, 1) 0%,
-            rgba(8, 16, 50, 1) 100%
-          );
-        "
-      >
-        <h2 class="text-4xl mb-4 mt-4 text-center" style="font-family: Mestizo">
-          Register Now
-        </h2>
-        <p class="text-lg text-center mb-6 max-w-md" id="register-content">
-          Be part of Perseverantia '25 and showcase your talents across 21+
-          thrilling events. Don’t miss your chance to compete, collaborate, and
-          celebrate!
-        </p>
-        <a
-          href="/register"
-          id="register-link"
-          target="_blank"
-          class="text-white bg-[#081032] py-3 px-8 rounded-full hover:shadow-xl hover:bg-[#BE8E30] hover:outline-[#081032] hover:text-black transition duration-300 outline outline-[4px] outline-[#BE8E30] outline-offset-2"
-        >
-          Register Here
-        </a>
-      </div>
+    <section class="mb-8">
+      <h2 class="text-2xl mb-4 text-[#BE8E30]">Contact Section</h2>
 
-      <!-- Right Column: Contact Info -->
-      <div class="bg-[#081032] text-white p-10 flex flex-col justify-center">
-        <h2 class="text-4xl mb-4" style="font-family: Mestizo">Contact Us</h2>
-        <p class="text-lg mb-2" id="contact-numbers">
-          📞 +91 84258 98552 / +91 77380 99474 / +91 70211 38415
-        </p>
-        <p class="text-lg mb-2 break-words">
-          ✉️
-          <a id="contact-email"
-            href="mailto:perseverantia.mahim@bombayscottish.in"
-            class="text-blue-400 hover:underline break-all"
-          >
-            perseverantia.mahim@bombayscottish.in
-          </a>
-        </p>
-        <p class="text-lg">
-          📍 153, Swatantryaveer Savarkar Road,<br />
-          Mahim West, Mumbai, Maharashtra - 400016
-        </p>
-      </div>
+      <label class="block mb-2 font-semibold" for="contactMobile">Mobile Numbers</label>
+      <textarea
+        id="contactMobile"
+        rows="2"
+        class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30] mb-4 resize-none"
+      >📞 +91 84258 98552 / +91 77380 99474 / +91 70211 38415</textarea>
+
+      <label class="block mb-2 font-semibold" for="contactEmail">Email</label>
+      <input
+        id="contactEmail"
+        type="email"
+        class="w-full p-3 rounded bg-[#1E274F] text-white border border-[#BE8E30]"
+        value="perseverantia.mahim@bombayscottish.in"
+      />
     </section>
-    <!-- Footer Section -->
-    <footer class="bg-blue-900 text-white py-6">
-      <div class="container mx-auto text-center">
-        <p>&copy; 2025 Bombay Scottish School, Mahim. All rights reserved.</p>
-      </div>
-    </footer>
 
-    <!-- Mobile Menu Toggle Script -->
-    <!--<script>
-      const toggleBtn = document.getElementById('menu-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
-      let menuOpen = false;
+    <!-- Generate & Output -->
+    <div class="text-center mt-6">
+      <button
+        id="generateBtn"
+        class="bg-[#BE8E30] text-black px-8 py-3 rounded-full font-bold hover:scale-105 transition duration-300"
+      >
+        Generate Config
+      </button>
+    </div>
 
-      toggleBtn.addEventListener('click', () => {
-        menuOpen = !menuOpen;
+    <pre
+      id="output"
+      class="mt-6 p-6 bg-[#1E274F] text-green-300 rounded max-h-96 overflow-auto text-sm font-mono whitespace-pre-wrap"
+    ></pre>
 
-        if (menuOpen) {
-          // Step 1: Remove hidden to allow rendering
-          mobileMenu.classList.remove('hidden');
+    <div class="text-center mt-4">
+      <button
+        id="copyBtn"
+        class="bg-[#BE8E30] text-black px-6 py-2 rounded-full font-semibold hover:scale-105 transition duration-300"
+      >
+        Copy Config
+      </button>
+      <p id="copyStatus" class="text-green-400 mt-2 hidden">Copied!</p>
+    </div>
+  </div>
 
-          // Step 2: Force a reflow (so transition triggers)
-          void mobileMenu.offsetWidth;
+  <footer class="text-center text-gray-400 text-xs mt-8">
+    &copy; 2025 Bombay Scottish School, Mahim. All rights reserved.
+  </footer>
 
-          // Step 3: Apply transition styles
-          mobileMenu.classList.remove('opacity-0', 'scale-y-95');
-          mobileMenu.classList.add('opacity-100', 'scale-y-100');
-        } else {
-          // Animate out
-          mobileMenu.classList.remove('opacity-100', 'scale-y-100');
-          mobileMenu.classList.add('opacity-0', 'scale-y-95');
+<script>
+  // Initial Navbar links from your JSON example
+  let navbarLinks = [
+    { name: "Leaderboard", linkto: "/leaderboard" },
+    { name: "Fortuna", linkto: "/fortuna" }
+  ];
 
-          // Delay hiding until after animation ends
-          setTimeout(() => {
-            if (!menuOpen) {
-              mobileMenu.classList.add('hidden');
-            }
-          }, 300);
+  const navbarLinksContainer = document.getElementById('navbarLinksContainer');
+  const addNavbarLinkBtn = document.getElementById('addNavbarLinkBtn');
+
+  // Render navbar links inputs
+  function renderNavbarLinks() {
+    navbarLinksContainer.innerHTML = '';
+    navbarLinks.forEach((link, index) => {
+      const div = document.createElement('div');
+      div.className = 'flex space-x-3 mb-3';
+
+      const nameInput = document.createElement('input');
+      nameInput.type = 'text';
+      nameInput.placeholder = 'Link Name';
+      nameInput.value = link.name;
+      nameInput.className = 'flex-1 p-2 rounded bg-[#1E274F] text-white border border-[#BE8E30]';
+      nameInput.oninput = (e) => {
+        navbarLinks[index].name = e.target.value;
+      };
+
+      const linkInput = document.createElement('input');
+      linkInput.type = 'text';
+      linkInput.placeholder = 'Link To';
+      linkInput.value = link.linkto;
+      linkInput.className = 'flex-1 p-2 rounded bg-[#1E274F] text-white border border-[#BE8E30]';
+      linkInput.oninput = (e) => {
+        navbarLinks[index].linkto = e.target.value;
+      };
+
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = '×';
+      removeBtn.title = 'Remove link';
+      removeBtn.className = 'text-red-500 font-bold px-2 hover:text-red-400';
+      removeBtn.onclick = () => {
+        navbarLinks.splice(index, 1);
+        renderNavbarLinks();
+      };
+
+      div.appendChild(nameInput);
+      div.appendChild(linkInput);
+      div.appendChild(removeBtn);
+
+      navbarLinksContainer.appendChild(div);
+    });
+  }
+
+  addNavbarLinkBtn.onclick = () => {
+    navbarLinks.push({ name: '', linkto: '' });
+    renderNavbarLinks();
+  };
+
+  // Initial render
+  renderNavbarLinks();
+
+  // Generate config object & JSON output
+  function generateConfig() {
+    const config = {
+      website: {
+        navbar: {
+          title: document.getElementById('navbarTitle').value.trim(),
+          links: navbarLinks.filter(l => l.name.trim() && l.linkto.trim()),
+        },
+        mainLogo: document.getElementById('mainLogoInput').value.trim(),
+        countdown: {
+          year: Number(document.getElementById('countdownYear').value),
+          month: Number(document.getElementById('countdownMonth').value),
+          day: Number(document.getElementById('countdownDay').value),
+        },
+        dateTime: document.getElementById('dateTimeInput').value.trim(),
+        about: {
+          tb1: document.getElementById('aboutTb1').value.trim(),
+          tbg: document.getElementById('aboutTbg').value.trim(),
+          tb2: document.getElementById('aboutTb2').value.trim(),
+          button1: {
+            name: document.getElementById('aboutButton1Name').value.trim(),
+            link: document.getElementById('aboutButton1Link').value.trim(),
+          },
+          button2: {
+            name: document.getElementById('aboutButton2Name').value.trim(),
+            link: document.getElementById('aboutButton2Link').value.trim(),
+          },
+          photo: document.getElementById('aboutPhoto').value.trim(),
+        },
+        register: {
+          content: document.getElementById('registerContent').value.trim(),
+          link: document.getElementById('registerLink').value.trim(),
+        },
+        contact: {
+          mobileNos: document.getElementById('contactMobile').value.trim(),
+          email: document.getElementById('contactEmail').value.trim(),
         }
-      });
-    </script>-->
+      }
+    };
 
-    <script>
-      const toggleBtn = document.getElementById("menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-      let menuOpen = false;
+    return config;
+  }
 
-      toggleBtn.addEventListener("click", () => {
-        menuOpen = !menuOpen;
+  // On generate button click
+  const generateBtn = document.getElementById('generateBtn');
+  const output = document.getElementById('output');
+  generateBtn.onclick = () => {
+    const config = generateConfig();
+    output.textContent = JSON.stringify(config, null, 2);
+    document.getElementById('copyStatus').classList.add('hidden');
+  };
 
-        if (menuOpen) {
-          // Step 1: Remove hidden
-          mobileMenu.classList.remove("hidden");
+  const iframeContainer = document.createElement('div');
+  iframeContainer.className = 'mt-10 border border-[#BE8E30] rounded overflow-hidden';
+  iframeContainer.style.height = '600px'; // fixed height for demo
 
-          // Step 2: Force reflow to trigger transition
-          void mobileMenu.offsetWidth;
+  const iframeTitle = document.createElement('h3');
+  iframeTitle.textContent = 'Live Preview (iframe)';
+  iframeTitle.className = 'text-[#BE8E30] font-mestizo mb-2 text-lg';
 
-          // Step 3: Apply animated "bounce in" styles
-          mobileMenu.classList.remove(
-            "opacity-0",
-            "scale-y-90",
-            "-translate-y-4",
-          );
-          mobileMenu.classList.add(
-            "opacity-100",
-            "scale-y-100",
-            "translate-y-0",
-          );
-        } else {
-          // Animate out
-          mobileMenu.classList.remove(
-            "opacity-100",
-            "scale-y-100",
-            "translate-y-0",
-          );
-          mobileMenu.classList.add("opacity-0", "scale-y-90", "-translate-y-4");
+  const iframe = document.createElement('iframe');
+  iframe.style.width = '100%';
+  iframe.style.height = '600px';
+  iframe.style.border = 'none';
 
-          // Hide after animation completes
-          setTimeout(() => {
-            if (!menuOpen) {
-              mobileMenu.classList.add("hidden");
-            }
-          }, 500); // Match transition duration
-        }
-      });
-    </script>
+  iframeContainer.appendChild(iframeTitle);
+  iframeContainer.appendChild(iframe);
+  document.querySelector('.max-w-5xl').appendChild(iframeContainer);
 
-    <script>
-      let d = document.getElementById("d");
-      let h = document.getElementById("h");
-      let m = document.getElementById("m");
-      let s = document.getElementById("s");
-        setInterval(() => {
-          if (new Date(year, month-1, day, 7, 0, 0) > new Date()){
-          d.innerHTML = (
-            "" +
-            Math.floor(
-              (new Date(year,month-1, day, 7, 0, 0) - new Date()) / (1000 * 86400),
-            )
-          ).padStart(2, "0");
-          h.innerHTML = (
-            "" +
-            Math.floor(
-              ((new Date(year, month-1, day, 7, 0, 0).getTime() - Date.now()) /
-                (1000 * 3600)) %
-                24,
-            )
-          ).padStart(2, "0");
-          m.innerHTML = (
-            "" +
-            Math.floor(
-              ((new Date(year, month-1, day, 7, 0, 0).getTime() - Date.now()) /
-                (1000 * 60)) %
-                60,
-            )
-          ).padStart(2, "0");
-          s.innerHTML = (
-            "" +
-            Math.floor(
-              ((new Date(year, month-1, day, 7, 0, 0).getTime() - Date.now()) / 1000) %
-                60,
-            )
-          ).padStart(2, "0");
-          }
-        }, 1000);
-      
-    </script>
-  </body>
+  generateBtn.onclick = () => {
+    const config = generateConfig();
+    output.textContent = JSON.stringify(config, null, 2);
+    document.getElementById('copyStatus').classList.add('hidden');
+
+    // Encode website config as JSON string
+    const encodedConfig = encodeURIComponent(JSON.stringify(config.website));
+    // Construct iframe src with config param
+    iframe.src = `/viewTest.html?config=${encodedConfig}`;
+  };
+
+
+  // Copy to clipboard button
+  const copyBtn = document.getElementById('copyBtn');
+  const copyStatus = document.getElementById('copyStatus');
+  copyBtn.onclick = () => {
+    if (!output.textContent) return;
+    navigator.clipboard.writeText(output.textContent).then(() => {
+      copyStatus.classList.remove('hidden');
+      setTimeout(() => copyStatus.classList.add('hidden'), 1500);
+    });
+  };
+
+  // Generate initially
+  generateBtn.click();
+
+</script>
+
+</body>
 </html>
