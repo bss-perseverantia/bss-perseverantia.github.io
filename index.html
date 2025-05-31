@@ -11,71 +11,7 @@
     <meta property="og:description" content=" Perseverantia, The Annual Inter-school Festival of Bombay Scottish School, Mahim.">
     <meta property="og:image" content="https://bss-perseverantia.github.io/persevlogo.png" />
     <title>Perseverantia</title>
-    <style>
-      @font-face {
-        font-family: Mestizo;
-        src: url(/assets/MestizoFont.ttf);
-      }
-    </style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      var day = 0;
-      var month = 0;
-      var year = 0;
-      async function a(){
-        await fetch("/config.json")
-        .then((res) => {console.log(res);return res.json();})
-        .then((data) => {
-          const site = data.website;
-          console.log(site)
-          day = site.countdown.day;
-          month = site.countdown.month;
-          year = site.countdown.year;
-          for(let i=0;i<site.navbar.links.length;i++){
-            document.getElementById("desktop-nav").innerHTML += `<a href="${site.navbar.links[i].linkto}" class="hover:text-blue-200">${site.navbar.links[i].name}</a>`;
-            document.getElementById("mobile-menu").innerHTML += `<a href="${site.navbar.links[i].linkto}" class="block py-2 text-lg hover:text-blue-200">${site.navbar.links[i].name}</a>`
-            
-          }
-
-          // Navbar
-          document.getElementById("nav-title").textContent = site.navbar.title;
-          document.getElementById("tb1").textContent = site.about.tb1;
-          document.getElementById("tbg").textContent = site.about.tbg;
-          document.getElementById("tb2").innerHTML = site.about.tb2;
-
-
-          // About Buttons
-          const btn1 = document.getElementById("button1");
-          btn1.textContent = site.about.button1.name;
-          btn1.href = site.about.button1.link;
-
-          const btn2 = document.getElementById("button2");
-          btn2.textContent = site.about.button2.name;
-          btn2.href = site.about.button2.link;
-
-          // About Image
-          document.getElementById("about-img").src = site.about.photo;
-
-          // Register Text and Link
-          document.getElementById("register-content").textContent =
-            site.register.content;
-          document.getElementById("register-link").href = site.register.link;
-
-          // Contact Info
-          document.getElementById("contact-numbers").textContent =
-            site.contact.mobileNos;
-
-          const contactEmail = document.getElementById("contact-email");
-          contactEmail.href = "mailto:" + site.contact.email;
-          contactEmail.textContent = site.contact.email;
-          
-        })
-        .catch((err) => {
-          console.error("Failed to load /config", err);
-        });
-                }
-      a();
-    </script>
+    
     <link rel="icon" type="image/png" href="/assets/persevlogo.png" />
   </head>
   <body class="bg-gray-100 text-gray-800">
@@ -435,6 +371,71 @@
           }
         }, 1000);
       
+    </script>
+    <style>
+      @font-face {
+        font-family: Mestizo;
+        src: url(/assets/MestizoFont.ttf);
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      var day = 0;
+      var month = 0;
+      var year = 0;
+      async function a(){
+        await fetch("/config.json")
+        .then((res) => {console.log(res);return res.json();})
+        .then((data) => {
+          const site = data.website;
+          console.log(site)
+          day = site.countdown.day;
+          month = site.countdown.month;
+          year = site.countdown.year;
+          for(let i=0;i<site.navbar.links.length;i++){
+            document.getElementById("desktop-nav").innerHTML += `<a href="${site.navbar.links[i].linkto}" class="hover:text-blue-200">${site.navbar.links[i].name}</a>`;
+            document.getElementById("mobile-menu").innerHTML += `<a href="${site.navbar.links[i].linkto}" class="block py-2 text-lg hover:text-blue-200">${site.navbar.links[i].name}</a>`
+            
+          }
+
+          // Navbar
+          document.getElementById("nav-title").textContent = site.navbar.title;
+          document.getElementById("tb1").textContent = site.about.tb1;
+          document.getElementById("tbg").textContent = site.about.tbg;
+          document.getElementById("tb2").innerHTML = site.about.tb2;
+
+
+          // About Buttons
+          const btn1 = document.getElementById("button1");
+          btn1.textContent = site.about.button1.name;
+          btn1.href = site.about.button1.link;
+
+          const btn2 = document.getElementById("button2");
+          btn2.textContent = site.about.button2.name;
+          btn2.href = site.about.button2.link;
+
+          // About Image
+          document.getElementById("about-img").src = site.about.photo;
+
+          // Register Text and Link
+          document.getElementById("register-content").textContent =
+            site.register.content;
+          document.getElementById("register-link").href = site.register.link;
+
+          // Contact Info
+          document.getElementById("contact-numbers").textContent =
+            site.contact.mobileNos;
+
+          const contactEmail = document.getElementById("contact-email");
+          contactEmail.href = "mailto:" + site.contact.email;
+          contactEmail.textContent = site.contact.email;
+          
+        })
+        .catch((err) => {
+          console.error("Failed to load /config", err);
+        });
+                }
+      a();
     </script>
   </body>
 </html>
