@@ -7,7 +7,7 @@
         { "name": "Fortuna", "linkto": "/fortuna" }
       ]
     },
-    "mainLogo": "/assets/persev.png",
+    "mainLogo": "/assets/persev.avif",
     "countdown": { "year": 2025, "month": 10, "day": 3 },
     "dateTime": "3rd October @ 7:00 a.m.",
     "about": {
@@ -19,7 +19,7 @@
         "name": "Organizing Committee",
         "link": "/organizingCommittee"
       },
-      "photo": "/assets/bannernl.jpg"
+      "photo": "/assets/bannernl.avif"
     },
     "register": {
       "content": "Be part of Perseverantia '25 and showcase your talents across 21+ thrilling events. Don’t miss your chance to compete, collaborate, and celebrate!",
