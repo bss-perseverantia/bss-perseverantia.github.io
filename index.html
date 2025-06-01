@@ -36,6 +36,13 @@
       }
     </style>
     <script>
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+
+      const test = urlParams.get('test');
+      if(test!='true'){
+        window.location.href = "/coming-soon"
+      }
       var day = 0;
       var month = 0;
       var year = 0;
