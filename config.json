@@ -4,7 +4,8 @@
       "title": "PERSEVERANTIA '25",
       "links": [
         { "name": "Leaderboard", "linkto": "/leaderboard" },
-        { "name": "Fortuna", "linkto": "/fortuna" }
+        { "name": "Fortuna", "linkto": "/fortuna" },
+        { "name": "Menu", "linkto":"/menu" }
       ]
     },
     "mainLogo": "/assets/persev.avif",
