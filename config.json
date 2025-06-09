@@ -3,8 +3,8 @@
     "navbar": {
       "title": "PERSEVERANTIA '25",
       "links": [
-        { "name": "Leaderboard", "linkto": "/leaderboard" },
-        { "name": "Fortuna", "linkto": "/fortuna" },
+        { "name": "Leaderboard", "linkto": "https://perseverantia-mnz8.onrender.com/" },
+        { "name": "Fortuna", "linkto": "https://fortuna-2nlc.onrender.com/" },
         { "name": "Menu", "linkto":"/menu" }
       ]
     },
