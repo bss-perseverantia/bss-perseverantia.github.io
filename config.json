@@ -1,5 +1,207 @@
 {
   "website": {
+    "events":[
+      {
+        "name": "ADMETA",
+        "shortDesc": "The Debate Arena",
+        "subTheme": "The Echo Chamber Effect / Performative vs. Powerful",
+        "oneLiner": "Clash, convince, and command the crowd in our most intense debating arena yet.",
+        "logo": "https://static.wixstatic.com/media/ed81f5_6dce30158950420b97e91b1590fced74~mv2.png/v1/fill/w_164,h_220,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Copy%20of%20Copy%20of%20P%20(4)_edited.png",
+        "eventHeadPhoto": "https://static.wixstatic.com/media/ed81f5_80f33be8cda442c3a1102b980d531a3c~mv2.png/v1/fill/w_389,h_420,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_7897_HEIC.png",
+        "longDesc": "In the vast expanse of ideas, walk into the arena of intellect where minds collide like thunder. Admeta beckons, a crucible for discourse where argument's fire purifies perspectives. It is a platform that enables debaters and newcomers to put their knowledge to the test, a place where diversified opinions come together, and every word is meaningful. If you possess a knack for this craft, Admeta welcomes you to join our passionate debates and community of thinkers. Join us on our quest for knowledge and truth informed by reason, a place for sharing ideas and thoughts!",
+        "ropLink": ""
+      },
+      {
+        "name": "EXPLORARE",
+        "shortDesc": "The Scavenger Hunt",
+        "subTheme": "Offline is the New Luxury / Digital Humanity",
+        "oneLiner": "Hunt through digital clues and real-world trails in a race that tests both brain and presence.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "FORTUNA",
+        "shortDesc": "The Stock Market Simulator",
+        "subTheme": "Validation Nation",
+        "oneLiner": "Invest, manipulate, and rise—or crash—in this live-action economic rollercoaster.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "ARTEM",
+        "shortDesc": "The Digital x Physical Art Lab",
+        "subTheme": "The Aesthetic of ‘Real’",
+        "oneLiner": "Blur the lines between digital illusions and tangible truths through artistic alchemy.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "CARMEN",
+        "shortDesc": "The Slam Poetry Arena",
+        "subTheme": "Performative vs. Powerful / Digital Safe Spaces",
+        "oneLiner": "Let your words burn, heal, and roar in a raw, unplugged slam showdown.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "E-SPORTS",
+        "shortDesc": "Ethical Gaming League",
+        "subTheme": "Ghosts in the Machine / Digital Humanity",
+        "oneLiner": "Enter the arena where gaming isn’t just play—it’s philosophy, ethics, and adrenaline.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "FABULA",
+        "shortDesc": "The Micro-Film Festival",
+        "subTheme": "The Aesthetic of ‘Real’ / Validation Nation / Ctrl+Me",
+        "oneLiner": "Craft a world in minutes—tell bold stories that question what’s real and what’s liked.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "GRATIA",
+        "shortDesc": "Movement Theatre (Dance)",
+        "subTheme": "Dance Therapy / Hashtag to Heartbeat / Filtered Feelings / Lag & Real-Time",
+        "oneLiner": "Move beyond choreography—dance your message, your trauma, your truth.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "MR. & MS. PERSEVERANTIA",
+        "shortDesc": "The Persona Pageant",
+        "subTheme": "Ctrl+Me / The Aesthetic of ‘Real’",
+        "oneLiner": "Showcase your truest self in a pageant where substance outshines spectacle.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "PANACHE",
+        "shortDesc": "The Fashion Hackathon",
+        "subTheme": "Validation Nation / Offline is the New Luxury",
+        "oneLiner": "Stitch rebellion into style as you design fashion with purpose, protest, and personality.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "SOCIALE",
+        "shortDesc": "The Digital Showcase",
+        "subTheme": "",
+        "oneLiner": "A candid collection of reflections and revelations on our lives behind the screen.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "Segments:\nUnfiltered Me\nDigital Detox Diaries",
+        "ropLink": ""
+      },
+      {
+        "name": "THE CODING ARENA",
+        "shortDesc": "Ethical Hackathon",
+        "subTheme": "Ctrl+Me / Ghosts in the Machine",
+        "oneLiner": "Build tech that asks not just can we—but should we?",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "MASTERCHEF",
+        "shortDesc": "The Culinary Challenge",
+        "subTheme": "Offline is the New Luxury / Digital Humanity",
+        "oneLiner": "Cook offline, think online—craft dishes that blend tradition, tech, and taste.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "MONOPOLIUM",
+        "shortDesc": "Lifetime Game of Monopoly",
+        "subTheme": "",
+        "oneLiner": "Play the ultimate, multi-day Monopoly showdown where strategy meets survival.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "THINKING INSIDE THE BOX",
+        "shortDesc": "",
+        "subTheme": "",
+        "oneLiner": "Speak your truth without the obvious—describe the indescribable under pressure.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "Message: True expression isn’t limited by language—it’s expanded by it.",
+        "ropLink": ""
+      },
+      {
+        "name": "Basketball",
+        "shortDesc": "Slam Dunk Spectacle",
+        "subTheme": "",
+        "oneLiner": "Dribble, defend, and dominate the court—one slam at a time.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "Football",
+        "shortDesc": "Classic Kick-Off",
+        "subTheme": "",
+        "oneLiner": "Strategy meets stamina in this ultimate face-off on the field.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "Gully Cricket",
+        "shortDesc": "Back to the Roots",
+        "subTheme": "",
+        "oneLiner": "Nostalgia and cricket collide—no stadium, just pure street-style glory.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "Table Tennis",
+        "shortDesc": "Ping Pong Pandemonium",
+        "subTheme": "",
+        "oneLiner": "Fast hands, sharp reflexes—let the tables turn!",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "",
+        "ropLink": ""
+      },
+      {
+        "name": "Tug of War",
+        "shortDesc": "",
+        "subTheme": "",
+        "oneLiner": "Team up, hold tight, and pull your way to glory in this ultimate test of grit.",
+        "logo": "",
+        "eventHeadPhoto": "",
+        "longDesc": "Band Where rhythm meets rebellion—only the rawest sound survives.",
+        "ropLink": ""
+      }
+    ],
     "navbar": {
       "title": "PERSEVERANTIA '25",
       "links": [
