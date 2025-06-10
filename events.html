@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perseverantia Events</title>
+  <link rel="icon" type="image/png" href="https://bss-perseverantia.github.io/assets/persevlogo.png" />
+  <link
+    href="out.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(50deg, rgba(17,89,141,1) 0%, rgba(8,16,50,1) 100%);
+      color: white;
+    }
+    h1, h2, h3 {
+      font-family: 'Mestizo', serif;
+    }
+    @font-face {
+      font-family: Mestizo;
+      src: url('https://perseverantia.events-at-scottishmahim.com/assets/MestizoFont.ttf');
+    }
+
+    /* Custom styles for hamburger menu and modal adjustments */
+    @media (max-width: 639px) { /* Tailind CSS 'sm' breakpoint is 640px */
+      #navbarLinks {
+        display: none; /* Hide by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+        background-color: #0C1542; /* Ensure background for dropdown */
+        border-top: 1px solid #BE8E30;
+        padding-top: 0.5rem;
+      }
+      #navbarLinks.open {
+        display: flex; /* Show when open */
+      }
+      #navbarLinks li {
+        margin-bottom: 0.75rem;
+      }
+      #hamburgerButton {
+        display: block; /* Show hamburger icon on mobile */
+      }
+    }
+    @media (min-width: 640px) {
+      #hamburgerButton {
+        display: none; /* Hide hamburger icon on desktop */
+      }
+    }
+
+    /* Modal specific adjustments */
+    #modal .modal-content {
+      width: 95%; /* Make modal slightly smaller on all screens */
+      max-width: 600px; /* Max width for modal */
+    }
+
+    /* Ensure close button is always visible and modal content is scrollable */
+    #modalDesc {
+        max-height: 200px; /* Reduced max height for description for smaller modals */
+        overflow-y: auto;
+        padding-right: 1rem; /* Add padding for scrollbar */
+    }
+    /* Style for the scrollbar if it appears */
+    #modalDesc::-webkit-scrollbar {
+        width: 8px;
+    }
+    #modalDesc::-webkit-scrollbar-track {
+        background: #081032; /* Darker track */
+        border-radius: 10px;
+    }
+    #modalDesc::-webkit-scrollbar-thumb {
+        background-color: #BE8E30; /* Golden scrollbar */
+        border-radius: 10px;
+        border: 2px solid #081032; /* Match track background */
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <nav class="bg-[#0C1542] border-b-4 border-[#BE8E30] px-6 py-4 shadow-md">
+    <div class="flex flex-wrap sm:flex-nowrap items-center justify-between space-y-4 sm:space-y-0">
+      <div class="flex items-center space-x-4">
+        <img src="https://bss-perseverantia.github.io/assets/persevlogo.png" alt="Logo" class="h-10 w-10" />
+        <span id="navbarTitle" class="text-[#BE8E30] text-xl font-Mestizo" style="font-family: Mestizo;">PERSEVERANTIA '25</span>
+      </div>
+      <button id="hamburgerButton" class="sm:hidden text-white text-3xl focus:outline-none">
+        &#9776; </button>
+      <ul id="navbarLinks" class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-white text-sm font-semibold">
+        </ul>
+    </div>
+  </nav>
+
+  <div class="flex justify-center my-6 px-4">
+    <img 
+      src="https://perseverantia.events-at-scottishmahim.com/assets/banner3.avif" 
+      alt="Perseverantia Banner" 
+      class="rounded-[20px] w-full max-w-4xl"
+    />
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+    <header class="text-center mb-12">
+      <h1 class="text-3xl sm:text-5xl text-[#BE8E30] mb-4">Our Events</h1>
+      <p class="text-gray-300 text-base sm:text-lg">Explore the thrilling line-up of competitions at Perseverantia '25.</p>
+    </header>
+
+    <div id="eventsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      </div>
+  </main>
+
+  <div id="modal" class="fixed inset-0 bg-[#08103280] flex items-center justify-center z-50 hidden overflow-y-auto p-4">
+    <div
+      class="bg-[#0C1542] border-4 border-[#BE8E30] rounded-xl relative flex flex-col lg:flex-row gap-6 sm:gap-8 shadow-2xl modal-content"
+      style="box-shadow: 0 0 25px 5px #BE8E30;"
+    >
+      <button
+        id="closeModal"
+        class="absolute top-4 right-4 text-white text-3xl font-bold hover:text-red-500 transition z-10"
+        aria-label="Close modal"
+      >
+        &times;
+      </button>
+
+      <div class="flex-1 p-6 sm:p-8 pt-12 sm:pt-12"> <h2 class="text-2xl sm:text-4xl text-[#BE8E30] mb-4 sm:mb-6 leading-tight" id="modalTitle"></h2>
+        <p
+          id="modalDesc"
+          class="text-gray-300 text-base sm:text-lg leading-relaxed whitespace-pre-line mb-6"
+        ></p>
+        <a
+          id="ropLinkBtn"
+          href="#"
+          target="_blank"
+          class="inline-block text-white bg-[#081032] py-2.5 px-6 sm:py-3 sm:px-8 rounded-full hover:shadow-xl hover:bg-[#BE8E30] hover:outline-[#081032] hover:text-black transition duration-300 outline outline-[4px] outline-[#BE8E30] outline-offset-2"
+        >
+          View ROP
+        </a>
+      </div>
+
+      <div class="flex-shrink-0 w-full lg:w-1/3 rounded-lg overflow-hidden shadow-lg flex flex-col items-center p-6 lg:mt-0">
+        <img
+          id="modalImage"
+          src=""
+          alt="Event Head"
+          class="w-full h-auto object-cover rounded-lg mb-4"
+        />
+        <p id="eventHeadName" class="text-[#BE8E30] font-semibold text-lg text-center"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Load config and populate navbar + events
+    fetch('config.json')
+      .then(res => res.json())
+      .then(config => {
+        const website = config.website || {};
+        const navbar = website.navbar || {};
+        const events = website.events || [];
+
+        // Navbar
+        document.getElementById('navbarTitle').textContent = navbar.title || "PERSEVERANTIA";
+        const navbarLinksEl = document.getElementById('navbarLinks');
+        navbarLinksEl.innerHTML = '';
+        (navbar.links || []).forEach(link => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = link.linkto;
+          a.textContent = link.name;
+          a.className = 'hover:text-[#BE8E30] transition';
+          li.appendChild(a);
+          navbarLinksEl.appendChild(li);
+        });
+
+        // Hamburger menu toggle
+        const hamburgerButton = document.getElementById('hamburgerButton');
+        hamburgerButton.addEventListener('click', () => {
+          navbarLinksEl.classList.toggle('open');
+        });
+
+        // Events
+        const grid = document.getElementById('eventsGrid');
+        events.forEach(event => {
+          const card = document.createElement('div');
+          card.className = 'bg-[#0C1542] rounded-lg p-6 border border-[#BE8E30] shadow-lg hover:scale-105 transition cursor-pointer';
+          card.innerHTML = `
+            <img src="${event.logo}" alt="${event.name} Logo" class="w-24 h-32 object-contain mx-auto mb-4" />
+            <h2 class="text-xl font-bold text-[#BE8E30] text-center">${event.name}</h2>
+            <p class="text-sm italic text-gray-300 text-center mt-1">${event.shortDesc}</p>
+          `;
+          card.onclick = () => openModal(event);
+          grid.appendChild(card);
+        });
+      })
+      .catch(err => {
+        document.getElementById('eventsGrid').innerHTML = `<p class="text-red-400">Failed to load events.</p>`;
+        console.error('Error loading config.json:', err);
+      });
+
+    // Modal logic
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const ropLinkBtn = document.getElementById('ropLinkBtn');
+    const modalImage = document.getElementById('modalImage');
+    const eventHeadName = document.getElementById('eventHeadName'); // Get the element for event head name
+    const closeModal = document.getElementById('closeModal');
+
+    function openModal(event) {
+      modalTitle.textContent = event.name;
+      modalDesc.textContent = event.longDesc || '';
+
+      if (event.eventHeadPhoto) {
+        modalImage.src = event.eventHeadPhoto;
+        modalImage.classList.remove('hidden');
+      } else {
+        modalImage.classList.add('hidden');
+      }
+
+      eventHeadName.textContent = event.eventHeadName || ''; // Set event head name
+
+      if (event.ropLink && event.ropLink.trim() !== '') {
+        ropLinkBtn.href = event.ropLink;
+        ropLinkBtn.classList.remove('hidden');
+      } else {
+        ropLinkBtn.classList.add('hidden');
+      }
+
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Prevent page scroll
+    }
+
+    closeModal.onclick = () => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = ''; // Restore scroll
+    };
+
+    modal.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+
+</body>
+</html>
