@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Perseverantia, The Annual Inter-school Festival of Bombay Scottish School, Mahim.">
     <link rel="icon" type="image/png" href="/assets/persev.png" />
-    <meta name="msapplication-TileImage" content="https://bss-perseverantia.github.io/assets/persev.png">    
+    <meta name="msapplication-TileImage" content="https://perseverantia.events-at-scottishmahim.com/assets/persev.png">    
     <!-- Site Name, Title, and Description to be displayed -->
     <meta property="og:site_name" content="Perseverantia">
     <meta property="og:title" content="Perseverantia, 2025">
     <meta property="og:description" content="Perseverantia, The Annual Inter-school Festival of Bombay Scottish School, Mahim.">
-    <meta property="og:image" content="https://bss-perseverantia.github.io/assets/persev2.png">
+    <meta property="og:image" content="https://perseverantia.events-at-scottishmahim.com/assets/persev2.png">
     <!-- No need to change anything here -->
     <meta property="og:type" content="website" />
     <meta property="og:image:type" content="image/jpeg">
@@ -19,10 +19,10 @@
     <meta property="og:image:height" content="300">
     <!-- Website to visit when clicked in fb or WhatsApp-->
     <meta property="og:url" content="https://perseverantia.events-at-scottishmahim.com/">
-    <meta name="twitter:card" content="https://bss-perseverantia.github.io/assets/banner3.jpeg" />
+    <meta name="twitter:card" content="https://perseverantia.events-at-scottishmahim.com/assets/banner3.jpeg" />
       <meta name="twitter:title" content="Perseverantia" />
       <meta name="twitter:description" content="Perseverantia, The Annual Inter-school Festival of Bombay Scottish School, Mahim." />
-      <meta name="twitter:image" content="https://bss-perseverantia.github.io/assets/persev2.png" />
+      <meta name="twitter:image" content="https://perseverantia.events-at-scottishmahim.com/persev2.png" />
       <meta name="twitter:url" content="https://perseverantia.events-at-scottishmahim.com/" />
 
     <meta name="keywords" content="Persev , Persev 2024, 2024, Perseverantia 2024,Perseverantia, bssm, Perseverantia , Perseverantia 2025, Bombay Scottish School Mahim, Bombay Scottish School, Events at Scottish Mahim, Scottish Mahim, Inter-school Fest, Inter-school Festivals">
@@ -35,7 +35,12 @@
         font-family: Mestizo;
         src: url(/assets/MestizoFont.ttf);
       }
+      #loading-screen.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
     </style>
+    
     <script>
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
@@ -81,6 +86,8 @@
           // About Image
           document.getElementById("about-img").src = site.about.photo;
           document.getElementById("main-img").src = site.mainLogo;
+          document.getElementById("abcd").src = site.mainVideo;
+          
           
 
           // Register Text and Link
@@ -96,15 +103,60 @@
           contactEmail.href = "mailto:" + site.contact.email;
           contactEmail.textContent = site.contact.email;
           
-        })
-        .catch((err) => {
+        }).then(() => {
+          const loader = document.getElementById("loading-screen");
+
+          // Ensure it's visible for at least 1 second
+          setTimeout(() => {
+            loader.classList.add("fade-out");
+            setTimeout(() => loader.remove(), 600); // match the CSS transition
+          }, 1000);
+        }).catch((err) => {
           console.error("Failed to load /config", err);
+
+          const loader = document.getElementById("loading-screen");
+          setTimeout(() => {
+            loader.classList.add("fade-out");
+            setTimeout(() => loader.remove(), 600);
+          }, 1000);
         });
+
+
                 }
       a();
     </script>
   </head>
   <body class="bg-gray-100 text-gray-800">
+    <!-- Improved Loading Screen -->
+    <div id="loading-screen" style="
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #0a0f2c, #1a2949);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s ease;
+    ">
+      <video
+        id="loading-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        style="
+          width: 150px;
+          height: 150px;
+          object-fit: contain;
+          filter: drop-shadow(0 0 20px rgba(190, 142, 48, 0.7));
+          border-radius: 12px;
+        "
+      >
+        <source src="/assets/load.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
     <!-- Navbar -->
     <nav class="text-white" style="background: #081032">
       <div
@@ -155,22 +207,26 @@
     <!-- Header Section with Image -->
     <header
       class="relative"
-      style="
-        background: #11598d;
-        background: linear-gradient(
-          50deg,
-          rgba(17, 89, 141, 1) 0%,
-          rgba(8, 16, 50, 1) 100%
-        );
-      "
+      style="background: linear-gradient(
+        90deg,
+        #0D122C 0%,
+        #131D3F 100%
+      );"
     >
-      <img
-        src="https://static.wixstatic.com/media/ed81f5_8df05af3e7524dafab639abced71ab32~mv2.png/v1/fill/w_480,h_477,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ed81f5_8df05af3e7524dafab639abced71ab32~mv2.png"
-        alt="Perseverantia Banner"
-        class="w-full max-w-md mx-auto pt-6"
-        id="main-img"
-      />
-
+      <div class="relative pt-6 flex justify-center z-10">
+        <video
+          autoplay
+          muted
+          playsinline
+          class="max-w-md w-full shadow-[0_0_20px_rgba(255,255,255,0.1)] h-auto object-contain z-10 "
+          id="main-video"
+          style="mix-blend-mode: lighten;border-radius:20px;"
+          
+        >
+          <source src="/assets/bannerv2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
       <section class="text-white py-8 mx-8">
         <div class="container mx-auto text-center">
           <h2 class="text-5xl" style="font-family: Mestizo">
@@ -223,7 +279,13 @@
     <section class="grid grid-cols-1 md:grid-cols-2 min-h-[500px]">
       <!-- Left Column: Text Content -->
       <div
-        class="bg-[#081032] text-white p-8 md:p-12 flex flex-col justify-between h-full"
+        class=" text-white p-8 md:p-12 flex flex-col justify-between h-full" style="
+          background: linear-gradient(
+            135deg,
+            rgba(17, 89, 141, 1) 0%,
+            rgba(8, 16, 50, 1) 50%
+          );
+        "
       >
         <div id="about-section">
            <h2 class="text-4xl mb-4" style="font-family: Mestizo">About</h2>
@@ -244,7 +306,7 @@
           
         </div>
 
-        <div class="mt-8 flex flex-col gap-y-6">
+        <div class="mt-8 flex flex-col gap-y-6" >
           <a
             href="/events"
             id="button1"
@@ -266,14 +328,7 @@
 
       <!-- Right Column: Full Image with Gradient Background -->
       <div
-        class="relative w-full h-64 md:h-auto min-h-[500px]"
-        style="
-          background: linear-gradient(
-            50deg,
-            rgba(17, 89, 141, 1) 0%,
-            rgba(8, 16, 50, 1) 80%
-          );
-        "
+        class="bg-[#081032] relative w-full h-64 md:h-auto min-h-[500px]"
       >
         <img
           id="about-img"
@@ -289,14 +344,8 @@
     <section class="grid grid-cols-1 md:grid-cols-2">
       <!-- Left Column: Register Now -->
       <div
-        class="p-10 text-white flex flex-col justify-center items-center"
-        style="
-          background: linear-gradient(
-            50deg,
-            rgba(17, 89, 141, 1) 0%,
-            rgba(8, 16, 50, 1) 100%
-          );
-        "
+        class="p-10 text-white flex flex-col justify-center items-center bg-[#081032]"
+        
       >
         <h2 class="text-4xl mb-4 mt-4 text-center" style="font-family: Mestizo">
           Register Now
@@ -317,7 +366,13 @@
       </div>
 
       <!-- Right Column: Contact Info -->
-      <div class="bg-[#081032] text-white p-10 flex flex-col justify-center">
+      <div class=" text-white p-10 flex flex-col justify-center" style="
+          background: linear-gradient(
+            -45deg,
+            rgba(17, 89, 141, 1) 0%,
+            rgba(8, 16, 50, 1) 60%
+          );
+        ">
         <h2 class="text-4xl mb-4" style="font-family: Mestizo">Contact Us</h2>
         <p class="text-lg mb-2" id="contact-numbers">
           📞 +91 84258 98552 / +91 77380 99474 / +91 70211 38415
@@ -463,6 +518,8 @@
         }, 1000);
       
     </script>
+  
+
 
   </body>
 </html>
