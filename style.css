@@ -830,3 +830,51 @@ margin-left: 11rem;
 margin-right: 11rem;
 }
 }
+
+.gradient-outline-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  position: relative;
+  background: linear-gradient(to right, #facc15, #ec4899, #a855f7); /* Gradient border */
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  z-index: 0;
+}
+
+.gradient-outline-button::before {
+  content: "";
+  position: absolute;
+  inset: 4px; /* Thicker border = larger inset */
+  background-color: #081032;
+  border-radius: inherit;
+  z-index: -1;
+  transition: background 0.4s ease;
+}
+
+.gradient-outline-button:hover::before {
+  background: linear-gradient(to right, #facc15, #ec4899, #a855f7); /* Gradient fill on hover */
+}
+
+.gradient-outline-button:hover {
+  color: black;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.gradient-outline-button svg {
+  height: 24px;
+  width: 24px;
+  z-index: 1;
+  fill: currentColor;
+}
+
+.gradient-outline-button > * {
+  z-index: 1;
+}
