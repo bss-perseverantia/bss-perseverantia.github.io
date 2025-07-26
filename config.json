@@ -225,9 +225,9 @@
     "navbar": {
       "title": "PERSEVERANTIA '25",
       "links": [
-        { "name": "Leaderboard", "linkto": "https://perseverantia-mnz8.onrender.com/" },
-        { "name": "Fortuna", "linkto": "https://fortuna-2nlc.onrender.com/" },
-        { "name": "Menu", "linkto":"/menu" }
+        { "name": "Leaderboard", "linkto": "https://leaderboard.events-at-scottishmahim.com/" },
+        {"name":"Events", "linkto": "/events"},
+        {"name": "Organizing Committee", "linkto": "/organizingCommittee"}
       ]
     },
     "mainLogo": "/assets/persevnew.avif",

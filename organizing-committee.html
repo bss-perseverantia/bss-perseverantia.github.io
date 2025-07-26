@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Meet the Organising Committee of Perseverantia, Bombay Scottish School, Mahim.">
+    <link rel="icon" type="image/png" href="/assets/persev.png" />
+    <meta property="og:site_name" content="Perseverantia">
+    <meta property="og:title" content="Organising Committee - Perseverantia 2025">
+    <meta property="og:description"
+        content="Meet the brilliant team behind Perseverantia, The Annual Inter-school Festival of Bombay Scottish School, Mahim.">
+    <meta property="og:image" content="https://perseverantia.events-at-scottishmahim.com/assets/persev2.png">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://perseverantia.events-at-scottishmahim.com/organizing-committee">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Organising Committee - Perseverantia 2025" />
+    <meta name="twitter:description" content="Meet the team behind Perseverantia, Bombay Scottish School, Mahim." />
+    <meta name="twitter:image" content="https://perseverantia.events-at-scottishmahim.com/persev2.png" />
+
+    <title>Organising Committee - Perseverantia</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        @font-face {
+            font-family: Mestizo;
+            src: url(/assets/MestizoFont.ttf);
+        }
+
+        #loading-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <!-- Loading Screen -->
+    <div id="loading-screen"
+        style="position: fixed; inset: 0; background: linear-gradient(135deg, #0a0f2c, #1a2949); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease;">
+        <video id="loading-video" autoplay muted loop playsinline
+            style="width: 150px; height: 150px; object-fit: contain; filter: drop-shadow(0 0 20px rgba(190, 142, 48, 0.7)); border-radius: 12px;">
+            <source src="/assets/load.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="text-white" style="background: #081032">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="/assets/persev.png" alt="Logo" class="h-10 w-10 md:hidden" />
+                <span class="text-2xl" style="font-family: Mestizo" id="nav-title">
+                    Perseverantia
+                </span>
+            </div>
+            <div class="hidden md:flex space-x-6 text-lg" id="desktop-nav">
+                <a href="/" class="hover:text-blue-200">Home</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="focus:outline-none" aria-label="menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden opacity-0 scale-y-90 -translate-y-4 transform transition-all duration-500 ease-out origin-top px-4 pb-4">
+            <a href="/" class="block py-2 text-lg hover:text-blue-200">Home</a>
+        </div>
+    </nav>
+
+    <!-- Organising Committee Section -->
+    <section class="py-12 bg-gradient-to-r from-[#0D122C] to-[#131D3F] text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl mb-8 text-center" style="font-family: Mestizo">Organising Committee</h2>
+
+            <!-- Presidents (full width) -->
+            <div class="mb-12">
+                <div class="text-3xl text-center mb-4" style="font-family: Mestizo;">Presidents</div>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-72">
+                        <img src="/assets/oc2025/presidents/darshil.avif" alt="Darshil Kochar" class="aspect-[4/3] w-full object-cover object-top rounded-lg mb-4">
+                        <div class="text-xl">Darshil Kochar</div>
+                    </div>
+                    <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-72">
+                        <img src="/assets/oc2025/presidents/neel.avif" alt="Neel More" class="aspect-[4/3] w-full object-cover object-top rounded-lg mb-4">
+                        <div class="text-xl">Neel More</div>
+                    </div>
+                    <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-72">
+                        <img src="/assets/oc2025/presidents/nishil.avif" alt="Nishil Iyer" class="aspect-[4/3] w-full object-cover object-top rounded-lg mb-4">
+                        <div class="text-xl">Nishil Iyer</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Administration (full width) -->
+            <div class="mb-12">
+                <div class="text-3xl text-center mt-10 mb-4" style="font-family: Mestizo;">Administration</div>
+                <!-- No images found for Administration in the folder, so leave placeholders or remove if not needed -->
+            </div>
+
+            <!-- Two committees per row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+                <!-- Example for all other departments: use w-56 instead of w-72 -->
+                <!-- Awards -->
+                <div>
+                    <div class="text-3xl text-center mt-10 mb-4" style="font-family: Mestizo;">Awards</div>
+                    <!-- No images found for Awards in the folder, so leave placeholders or remove if not needed -->
+                </div>
+
+                <!-- Design -->
+                <div>
+                    <div class="text-3xl text-center mt-10 mb-4" style="font-family: Mestizo;">Design</div>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/design/janyaa.avif" alt="Janyaa" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Janyaa</div>
+                        </div>
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/design/naisha.avif" alt="Naisha" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Naisha</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finance -->
+                <div>
+                    <div class="text-3xl text-center mt-10 mb-4" style="font-family: Mestizo;">Finance</div>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/finance/shaurya.avif" alt="Shaurya Raisoni" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Shaurya Raisoni</div>
+                        </div>
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/finance/vivaan.avif" alt="Vivaan Chakrabarti" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Vivaan Chakrabarti</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hospitality -->
+                <div>
+                    <div class="text-3xl text-center mt-10 mb-4" style="font-family: Mestizo;">Hospitality</div>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/hospitality/druvan.avif" alt="Druvan Kapoor" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Druvan Kapoor</div>
+                        </div>
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/hospitality/nandini.avif" alt="Nandini Gurav" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Nandini Gurav</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marketing -->
+                <div>
+                    <div class="text-3xl text-center mt-10 mb-4" style="font-family: Mestizo;">Marketing</div>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/marketing/aastha.avif" alt="Aastha" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Aastha</div>
+                        </div>
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/marketing/yashvi.avif" alt="Yashvi" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Yashvi</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photography -->
+                <div>
+                    <div class="text-3xl text-center mt-10 mb-4" style="font-family: Mestizo;">Photography</div>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/photography/naman.avif" alt="Naman" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Naman</div>
+                        </div>
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/photography/suyash.avif" alt="Suyash" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Suyash</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research & Development -->
+                <div>
+                    <div class="text-3xl text-center mt-10 mb-4" style="font-family: Mestizo;">Research & Development</div>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/rnd/aadya.avif" alt="Aadya" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Aadya</div>
+                        </div>
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/rnd/varun.avif" alt="Varun" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Varun</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security -->
+                <div>
+                    <div class="text-3xl text-center mt-10 mb-4" style="font-family: Mestizo;">Security</div>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/security/arjun.avif" alt="Arjun" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Arjun</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <div class="text-3xl text-center mt-10 mb-4" style="font-family: Mestizo;">Social Media</div>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/social-media/sharanya.avif" alt="Sharanya" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Sharanya</div>
+                        </div>
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/social-media/tanisha.avif" alt="Tanisha" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Tanisha</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Operations -->
+                <div>
+                    <div class="text-3xl text-center mt-10 mb-4" style="font-family: Mestizo;">Technical Operations</div>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/technical-operations/Hridhuun.avif" alt="Hridhuun Savant" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Hridhuun Savant</div>
+                        </div>
+                        <div class="flex flex-col items-center bg-[#081032] rounded-xl p-4 hover:bg-[#BE8E30] hover:text-black transition w-56">
+                            <img src="/assets/oc2025/technical-operations/Arhaan.avif" alt="Arhaan Barucha" class="aspect-[4/3] w-full object-cover rounded-lg mb-4">
+                            <div class="text-xl">Arhaan Barucha</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Bombay Scottish School, Mahim. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Place this script before </body> -->
+    <script>
+        // --- Navbar Logic from events.html ---
+        async function setupNavbar() {
+            try {
+                const res = await fetch('config.json');
+                if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+                const config = await res.json();
+                const website = config.website || {};
+                const navbar = website.navbar || {};
+
+                // Populate Navbar Links
+                const desktopNav = document.getElementById("desktop-nav");
+                const mobileMenu = document.getElementById("mobile-menu");
+                desktopNav.innerHTML = '';
+                mobileMenu.innerHTML = '';
+                const homeDesktop = document.createElement('a');
+                homeDesktop.href = '/';
+                homeDesktop.textContent = 'Home';
+                homeDesktop.className = 'hover:text-blue-200';
+                desktopNav.appendChild(homeDesktop);
+
+                const homeMobile = document.createElement('a');
+                homeMobile.href = '/';
+                homeMobile.textContent = 'Home';
+                homeMobile.className = 'block py-2 text-lg hover:text-blue-200';
+                mobileMenu.appendChild(homeMobile);
+
+                (navbar.links || []).forEach(link => {
+                    // Desktop Nav
+                    const desktopLink = document.createElement('a');
+                    desktopLink.href = link.linkto;
+                    desktopLink.textContent = link.name;
+                    desktopLink.className = 'hover:text-blue-200';
+                    desktopNav.appendChild(desktopLink);
+
+                    // Mobile Nav
+                    const mobileLink = document.createElement('a');
+                    mobileLink.href = link.linkto;
+                    mobileLink.textContent = link.name;
+                    mobileLink.className = 'block py-2 text-lg hover:text-blue-200';
+                    mobileMenu.appendChild(mobileLink);
+                });
+
+                // Navbar Title
+                document.getElementById("nav-title").textContent = navbar.title || "Perseverantia";
+            } catch (err) {
+                // Fallback: do nothing, keep default nav
+            }
+        }
+        document.addEventListener("DOMContentLoaded", setupNavbar);
+
+        // --- Mobile Menu Toggle Script ---
+        const toggleBtn = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        let menuOpen = false;
+        toggleBtn.addEventListener("click", () => {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.remove("hidden");
+                void mobileMenu.offsetWidth;
+                mobileMenu.classList.remove("opacity-0", "scale-y-90", "-translate-y-4");
+                mobileMenu.classList.add("opacity-100", "scale-y-100", "translate-y-0");
+            } else {
+                mobileMenu.classList.remove("opacity-100", "scale-y-100", "translate-y-0");
+                mobileMenu.classList.add("opacity-0", "scale-y-90", "-translate-y-4");
+                setTimeout(() => {
+                    if (!menuOpen) {
+                        mobileMenu.classList.add("hidden");
+                    }
+                }, 500);
+            }
+        });
+
+        // --- Remove loading screen after 2 sec ---
+        window.addEventListener('load', () => {
+            const loader = document.getElementById("loading-screen");
+            setTimeout(() => {
+                loader.classList.add("fade-out");
+                setTimeout(() => loader.remove(), 600);
+            }, 2000);
+        });
+
+        // --- Link Interception for Loading Screen (Optional for consistency) ---
+        document.body.addEventListener('click', function (e) {
+            let targetLink = e.target.closest('a[href]');
+            if (targetLink && targetLink.href) {
+                const isInternal = targetLink.origin === window.location.origin;
+                const isFile = targetLink.href.includes('/assets/');
+                const isMailto = targetLink.protocol === 'mailto:';
+                const isAnchor = targetLink.hash && targetLink.pathname === window.location.pathname;
+                if (isInternal && !isFile && !isMailto && !isAnchor) {
+                    e.preventDefault();
+                    const loadingScreen = document.getElementById("loading-screen");
+                    loadingScreen.classList.remove("fade-out");
+                    loadingScreen.style.opacity = '1';
+                    loadingScreen.style.pointerEvents = 'auto';
+                    loadingScreen.style.display = 'flex';
+                    setTimeout(() => {
+                        window.location.href = targetLink.href;
+                    }, 1000);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
