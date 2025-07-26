@@ -227,7 +227,7 @@
       "links": [
         { "name": "Leaderboard", "linkto": "https://leaderboard.events-at-scottishmahim.com/" },
         {"name":"Events", "linkto": "/events"},
-        {"name": "Organizing Committee", "linkto": "/organizingCommittee"}
+        {"name": "Organizing Committee", "linkto": "/organizing-committee"}
       ]
     },
     "mainLogo": "/assets/persevnew.avif",
@@ -241,7 +241,7 @@
       "button1": { "name": "View Events", "link": "/events" },
       "button2": {
         "name": "Organizing Committee",
-        "link": "/organizingCommittee"
+        "link": "/organizing-committee"
       },
       "photo": "https://perseverantia.events-at-scottishmahim.com/assets/bannernl.avif"
     },
