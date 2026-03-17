@@ -1,19 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
 <url>
-  <loc>http://perseverantia.events-at-scottishmahim.com/</loc>
-  <lastmod>2026-02-20</lastmod>
+<loc>https://bss-perseverantia.github.io/</loc>
+<lastmod>2026-03-17</lastmod>
 </url>
+
 <url>
-  <loc>http://perseverantia.events-at-scottishmahim.com/handbook</loc>
-  <lastmod>2026-02-20</lastmod>
+<loc>https://bss-perseverantia.github.io/events.html</loc>
+<lastmod>2026-03-17</lastmod>
 </url>
+
 <url>
-  <loc>http://perseverantia.events-at-scottishmahim.com/events</loc>
-  <lastmod>2026-02-20</lastmod>
+<loc>https://bss-perseverantia.github.io/organizing-committee.html</loc>
+<lastmod>2026-03-17</lastmod>
 </url>
+
 <url>
-  <loc>http://perseverantia.events-at-scottishmahim.com/organizing-committee</loc>
-  <lastmod>2026-02-20</lastmod>
+<loc>https://bss-perseverantia.github.io/leaderboard.html</loc>
+<lastmod>2026-03-17</lastmod>
 </url>
+
 </urlset>
