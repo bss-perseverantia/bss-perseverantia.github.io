@@ -1,6 +1,4 @@
 User-agent: *
-Disallow: 
-Disallow: /cgi-bin/
-Disallow: /admin/login
-Disallow: /school-login
+Allow: /
+
 Sitemap: https://bss-perseverantia.github.io/sitemap.xml
