@@ -1,30 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
 <url>
-<loc>https://perseverantia.events-at-scottishmahim.com/</loc>
-<lastmod>2025-08-15T07:27:08+00:00</lastmod>
-<priority>1.00</priority>
+  <loc>http://perseverantia.events-at-scottishmahim.com/</loc>
+  <lastmod>2026-02-20</lastmod>
 </url>
 <url>
-<loc>
-https://perseverantia.events-at-scottishmahim.com/school-login
-</loc>
-<lastmod>2025-08-05T08:44:48+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>http://perseverantia.events-at-scottishmahim.com/handbook</loc>
+  <lastmod>2026-02-20</lastmod>
 </url>
 <url>
-<loc>
-https://perseverantia.events-at-scottishmahim.com/events
-</loc>
-<lastmod>2025-08-15T07:27:08+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>http://perseverantia.events-at-scottishmahim.com/events</loc>
+  <lastmod>2026-02-20</lastmod>
 </url>
 <url>
-<loc>
-https://perseverantia.events-at-scottishmahim.com/organizing-committee
-</loc>
-<lastmod>2025-08-15T07:36:26+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>http://perseverantia.events-at-scottishmahim.com/organizing-committee</loc>
+  <lastmod>2026-02-20</lastmod>
 </url>
 </urlset>
